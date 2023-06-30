@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuessingGame</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1> Welcome To My Guessing Game!</h1>
+    <div id="instrDiv">
+    <img src="./free-wizard.jpg" alt="Gandalf" id="gandalf" height="200">
+    <p> This is a very simple guessing game.  After you start the game, I will think of a number between 1 and 100.  I will give you 6 chances to guess the number.  If you don't get the number correct, I will tell you whether the number is higher or lower than your guess.  If you guess the number correctly in 6 or fewer guesses, you win!  If not, I win!  We will keep score on the scoreboard until you decide to quit the game!</p>
+    <p> First things first, though.  My name is Gandalf.  What is yours?</p>
+    </div>
+    <form autocomplete="off">
+        <label for="playerName">Tell Me Your Name Here:</label>
+        <input type="text" name="name" id="playerName" required>
+        <button type="button" id=startButton> Start The Game</button>
+    </form>
+
+   <div id="scoreBoardDiv"> 
+    OUR SCOREBOARD 
+   <table id="scoreboard">
+      <tr> 
+        <th> Gandalf's Score</th>
+        <th id="SBPlayerName"> Player's Score</th>
+      </tr>
+        <tr>
+            <td id="GandalfScore"> 0</td>
+            <td id="playerScore"> 0</td>
+        </tr>
+    </table>
+    </div>
+    <div id="guessesDiv">
+    <span id=guessesTitle>PLAYER'S GUESSES</span>
+    <table id="guesses">
+        <form autocomplete="off">
+        <tr>
+            <th> Guess #</th>
+            <th> Guess</th>
+            <th> Result</th>
+        </tr>
+        <tr>
+            <td> 1</td>
+            <td><input type="Text" id="guess1" readonly/></td>
+            <td id="result1"> </td>
+        </tr>
+        <tr>
+            <td> 2</td>
+            <td><input type="Text" id="guess2" readonly /></td>
+            <td id="result2"> </td>
+        </tr>
+        <tr>
+            <td> 3</td>
+            <td><input type="Text" id="guess3" readonly/></td>
+            <td id="result3"> </td>
+        </tr>
+        <tr>
+            <td> 4</td>
+            <td><input type="Text" id="guess4" readonly/></td>
+            <td id="result4"> </td>
+        </tr>
+        <tr>
+            <td> 5</td>
+            <td><input type="Text" id="guess5" readonly/></td>
+            <td id="result5"> </td>
+        </tr>
+        <tr>
+            <td> 6</td>
+            <td><input type="Text" id="guess6" readonly/></td>
+            <td id="result6"> </td>
+        </tr>
+        </form>
+    </table>
+    </div>
+    <div id="statusLine">
+    <form>
+        <!-- <input type="Text" id = "status" readonly> -->
+        <textarea name = "status" id="status" readonly cols="120" rows="3"></textarea>
+    </form>
+    </div> 
+
+    <div id="buttons">
+        <button type="button" id=submitButton> Submit Guess</button>
+        <button type="button" id=playAgainButton disabled> Play Again</button>
+        <button type="button" id=quitButton> Quit Game</button>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
