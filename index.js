@@ -34,6 +34,7 @@ function hideGamePlayArea() {
     document.getElementById("statusLine").style.display = "none";
     document.getElementById("buttons").style.display = "none";
     pName.value = "";
+    enableStartButton();
 }
 
 function updateScoreBoard() {
@@ -85,6 +86,17 @@ function clearGameData() {
     document.getElementById("guessesTitle").innerText=playerName + "PLAYER'S GUESSES";
 }
 
+function enableStartButton() {
+    //This function enables the "Start The Game" button.
+    //It is called when the player has either won or lost the round.
+    document.getElementById("startButton").disabled = false;
+}
+
+function disableStartButton() {
+    //This function disables the "Start The Game" button.
+    //It is called when the game starts.
+    document.getElementById("startButton").disabled = true;
+}
 function enablePlayAgainButton() {
     //This function enables the "Play Again" button.
     //It is called when the player has either won or lost the round.
@@ -119,6 +131,7 @@ function playGame() {
       statusMsg.value = "Welcome " + playerName + "! Type your guess in the Yellow Box and press 'Submit Guess.'"; 
       disablePlayAgainButton();
       enableSubmitButton();
+      disableStartButton();
       highlightGuessBox(guessCount);
      }
   
@@ -132,6 +145,10 @@ function playGame() {
 //and exposing the game play area.
 document.getElementById("startButton").onclick = welcomePlayer;
 function welcomePlayer() {
+    if (pName.value == "") {
+        alert("Please enter your name and press 'Start the Game' again.");
+        return;
+    }
     playerName = pName.value;
     exposeGamePlayArea();
     playGame();
